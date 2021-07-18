@@ -1,0 +1,4 @@
+<p>Titolo nuovo post-it: <input #newtitle/></p>
+<p>Contenuto nuovo post-it: <input #newcontent/></p>
+<p>Importante? <input type="checkbox" #ispostimp></p>
+<p><input #nuovo (click)="newPostitnew(newtitle.value, newcontent.value, ispostimp.checked)" type="button" value="Crea nuovo post-it"/></p>

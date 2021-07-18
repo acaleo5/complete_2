@@ -1,0 +1,22 @@
+<h1> {{ title }} </h1>
+<p *ngIf="chiave!=undefined">{{chiave}}</p>
+<p *ngIf="chiave===undefined">La chiave non è definita</p>
+<input type="button" value="Genera nuova chiave" (click)="generaChiave()"/>
+<app-loadkey (loadKeyEvent)="carica($event)"></app-loadkey>
+
+<div *ngIf="chiave!=undefined"><p>Mostra solo post importanti:<input type="checkbox" (click)="showimp()"/></p>
+
+<ul *ngIf="mostratimp===undefined">
+  <li *ngFor='let postit of postits'>
+    <p (click)="showp(c, postit)">{{postit.postittitle}}</p><input type="button" value="Cancella" (click)="delPostit(postit)"/>
+    <p #c></p>
+  </li>
+</ul>
+
+<ul *ngIf="mostratimp!==undefined">
+  <li *ngFor='let mos of mostratimp'>
+    <p (click)="showp(c, mos)">{{mos.postittitle}}</p><input type="button" value="Cancella" (click)="delPostit(mos)"/>
+    <p #c></p>
+  </li>
+</ul>
+<app-createpostit (newPostitEvent)="addPostit($event)"></app-createpostit></div>
